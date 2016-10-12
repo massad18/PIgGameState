@@ -35,7 +35,7 @@ public class PigComputerPlayer extends GameComputerPlayer {
         // TODO  You will implement this method
         if (pigGame.getPlayerTurn() == playerNum) {
             Random rand = new Random();
-            int randomNumber = rand.nextInt(1);
+            int randomNumber = rand.nextInt(2);
             if (randomNumber == 0) {
                 PigHoldAction hold = new PigHoldAction(this);
                 game.sendAction(hold);
