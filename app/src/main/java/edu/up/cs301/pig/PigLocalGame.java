@@ -25,6 +25,7 @@ public class PigLocalGame extends LocalGame {
      */
     public PigLocalGame() {
         //TODO  You will implement this constructor
+        super();
         pigGame = new PigGameState();
     }
 
