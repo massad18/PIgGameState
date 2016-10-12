@@ -51,7 +51,12 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         if (action instanceof PigHoldAction) {
-            pigGame.setRunningTotal(getTimer());
+            if (pigGame.getPlayerTurn() == 0) {
+                pigGame.setPlayer0Score(pigGame.getRunningTotal());
+            } else if (pigGame.getPlayerTurn() == 1) {
+                pigGame.setPlayer1Score(pigGame.getRunningTotal());
+            }
+            pigGame.setRunningTotal(0);
             return true;
         } else if(action instanceof PigRollAction) {
             Random rand = new Random();
