@@ -33,7 +33,7 @@ public class PigGameState extends GameState {
 
     }
 
-    int getPlayerTurn() {
+    public int getPlayerTurn() {
         return playerTurn;
 
     }
@@ -72,7 +72,12 @@ public class PigGameState extends GameState {
     }
 
     public void setRunningTotal(int total) {
-        runningTotal += total;
+        if (total == 1 ) {
+            runningTotal = 0;
+        }
+        else {
+            runningTotal += total;
+        }
     }
 
     public void setDieValue(int value) {

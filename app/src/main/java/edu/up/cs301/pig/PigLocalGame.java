@@ -7,6 +7,8 @@ import edu.up.cs301.game.infoMsg.GameState;
 
 import android.util.Log;
 
+import java.util.Random;
+
 /**
  * class PigLocalGame controls the play of the game
  *
@@ -34,7 +36,6 @@ public class PigLocalGame extends LocalGame {
         //TODO  You will implement this method
         player = pigGame.getPlayerTurn();
         if (playerIdx == player) {
-            pigGame.setPlayerTurn(playerIdx);
             return true;
         }
         else {
@@ -53,6 +54,15 @@ public class PigLocalGame extends LocalGame {
             pigGame.setRunningTotal(getTimer());
             return true;
         } else if(action instanceof PigRollAction) {
+            Random rand = new Random();
+            pigGame.setDieValue(rand.nextInt(5)+1);
+            if (pigGame.getDieValue() == 1) {
+                pigGame.setRunningTotal(0);
+                pigGame.setPlayerTurn(player);
+            }
+            else {
+                pigGame.setRunningTotal(pigGame.getDieValue());
+            }
             return true;
         } else {
             return false;
