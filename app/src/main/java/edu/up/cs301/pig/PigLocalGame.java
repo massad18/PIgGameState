@@ -49,8 +49,14 @@ public class PigLocalGame extends LocalGame {
      */
     @Override
     protected boolean makeMove(GameAction action) {
-        //TODO  You will implement this method
-        return false;
+        if (action instanceof PigHoldAction) {
+            pigGame.setRunningTotal(getTimer());
+            return true;
+        } else if(action instanceof PigRollAction) {
+            return true;
+        } else {
+            return false;
+        }
     }//makeMove
 
     /**
