@@ -15,11 +15,15 @@ import android.util.Log;
  */
 public class PigLocalGame extends LocalGame {
 
+    private int player;
+    private PigGameState pigGame;
+
     /**
-     * This ctor creates a new game state
+     * This actor creates a new game state
      */
     public PigLocalGame() {
         //TODO  You will implement this constructor
+        pigGame = new PigGameState();
     }
 
     /**
@@ -28,7 +32,14 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean canMove(int playerIdx) {
         //TODO  You will implement this method
-        return false;
+        player = pigGame.getPlayerTurn();
+        if (playerIdx == player) {
+            pigGame.setPlayerTurn(playerIdx);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**

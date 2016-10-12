@@ -33,7 +33,7 @@ public class PigGameState extends GameState {
 
     }
 
-    public int getPlayerTurn() {
+    int getPlayerTurn() {
         return playerTurn;
 
     }
