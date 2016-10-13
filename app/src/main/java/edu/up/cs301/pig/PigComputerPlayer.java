@@ -35,7 +35,7 @@ public class PigComputerPlayer extends GameComputerPlayer {
     @Override
     protected void receiveInfo(GameInfo info) {
         // TODO  You will implement this method
-        if (pigGame.getPlayerTurn() == playerNum) {
+        if (((PigGameState) info).getPlayerTurn() == playerNum) {
             Random rand = new Random();
             int randomNumber = rand.nextInt(2);
             if (randomNumber == 0) {
