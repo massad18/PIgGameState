@@ -40,11 +40,14 @@ public class PigComputerPlayer extends GameComputerPlayer {
             if (randomNumber == 0) {
                 PigHoldAction hold = new PigHoldAction(this);
                 game.sendAction(hold);
+
             }
             else {
                 PigRollAction roll = new PigRollAction(this);
                 game.sendAction(roll);
             }
+            PigLocalGame pigLG = new PigLocalGame();
+            pigLG.sendUpdatedStateTo(this);
         }
         else {
         }

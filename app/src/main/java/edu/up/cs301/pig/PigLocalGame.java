@@ -54,16 +54,18 @@ public class PigLocalGame extends LocalGame {
         if (action instanceof PigHoldAction) {
             if (pigGame.getPlayerTurn() == 0) {
                 pigGame.setPlayer0Score(pigGame.getRunningTotal());
+                pigGame.setPlayerTurn(player);
             } else if (pigGame.getPlayerTurn() == 1) {
                 pigGame.setPlayer1Score(pigGame.getRunningTotal());
+                pigGame.setPlayerTurn(player);
             }
-            pigGame.setRunningTotal(0);
+            pigGame.setRunningTotal(1);
             return true;
         } else if(action instanceof PigRollAction) {
             Random rand = new Random();
             pigGame.setDieValue(rand.nextInt(6)+1);
             if (pigGame.getDieValue() == 1) {
-                pigGame.setRunningTotal(0);
+                pigGame.setRunningTotal(1);
                 pigGame.setPlayerTurn(player);
             }
             else {
