@@ -69,10 +69,13 @@ public class PigLocalGame extends LocalGame {
                 pigGame.setDieValue(rand.nextInt(6) + 1);
                 if (pigGame.getDieValue() == 1) {
                     pigGame.setRunningTotal(1);
+
                     pigGame.setPlayerTurn(player);
+                    Log.i("","Hello");
                     return true;
                 } else {
                     pigGame.setRunningTotal(pigGame.getDieValue());
+                    Log.i("", "hello");
                     return true;
                 }
 
