@@ -56,9 +56,11 @@ public class PigLocalGame extends LocalGame {
                 if (pigGame.getPlayerTurn() == 0) {
                     pigGame.setPlayer0Score(pigGame.getRunningTotal());
                     pigGame.setPlayerTurn(player);
+                    return true;
                 } else if (pigGame.getPlayerTurn() == 1) {
                     pigGame.setPlayer1Score(pigGame.getRunningTotal());
                     pigGame.setPlayerTurn(player);
+                    return true;
                 }
                 pigGame.setRunningTotal(1);
                 return true;
@@ -68,14 +70,17 @@ public class PigLocalGame extends LocalGame {
                 if (pigGame.getDieValue() == 1) {
                     pigGame.setRunningTotal(1);
                     pigGame.setPlayerTurn(player);
+                    return true;
                 } else {
                     pigGame.setRunningTotal(pigGame.getDieValue());
+                    return true;
                 }
-                return true;
+
             } else {
                 return false;
             }
-        } else {
+        }
+        else {
             return false;
         }
     }//makeMove

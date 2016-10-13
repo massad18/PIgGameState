@@ -42,6 +42,7 @@ public class PigComputerPlayer extends GameComputerPlayer {
                 PigHoldAction hold = new PigHoldAction(this);
                 game.sendAction(hold);
 
+
             }
             else {
                 PigRollAction roll = new PigRollAction(this);
