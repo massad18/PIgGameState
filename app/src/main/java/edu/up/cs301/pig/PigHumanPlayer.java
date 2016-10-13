@@ -64,24 +64,30 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
     @Override
     public void receiveInfo(GameInfo info) {
         //TODO You will implement this method to receive state objects from the game
-        if (info instanceof PigGameState) {
-            playerScoreTextView.setText("" +pigGame.getPlayer0Score());
-            oppScoreTextView.setText("" +pigGame.getPlayer1Score());
-            turnTotalTextView.setText("" +pigGame.getRunningTotal());
-            int curVal = pigGame.getDieValue();
-            switch (curVal) {
-                case 1: dieImageButton.setImageResource(R.drawable.face1);
-                case 2: dieImageButton.setImageResource(R.drawable.face2);
-                case 3: dieImageButton.setImageResource(R.drawable.face3);
-                case 4: dieImageButton.setImageResource(R.drawable.face4);
-                case 5: dieImageButton.setImageResource(R.drawable.face5);
-                case 6: dieImageButton.setImageResource(R.drawable.face6);
+        if (pigGame.getPlayerTurn() == playerNum) {
+            if (info instanceof PigGameState) {
+                playerScoreTextView.setText("" + pigGame.getPlayer0Score());
+                oppScoreTextView.setText("" + pigGame.getPlayer1Score());
+                turnTotalTextView.setText("" + pigGame.getRunningTotal());
+                int curVal = pigGame.getDieValue();
+                switch (curVal) {
+                    case 1:
+                        dieImageButton.setImageResource(R.drawable.face1);
+                    case 2:
+                        dieImageButton.setImageResource(R.drawable.face2);
+                    case 3:
+                        dieImageButton.setImageResource(R.drawable.face3);
+                    case 4:
+                        dieImageButton.setImageResource(R.drawable.face4);
+                    case 5:
+                        dieImageButton.setImageResource(R.drawable.face5);
+                    case 6:
+                        dieImageButton.setImageResource(R.drawable.face6);
+                }
+
+            } else {
+                flash(Color.RED, 100);
             }
-            PigLocalGame pigLG = new PigLocalGame();
-            pigLG.sendUpdatedStateTo(this);
-        }
-        else {
-            flash(Color.RED, 100);
         }
     }//receiveInfo
 

@@ -59,7 +59,7 @@ public class PigGameState extends GameState {
     }
 
     public void setPlayerTurn(int player) {
-        //player = 1-player;
+        player = 1-player;
         playerTurn = player;
     }
 
